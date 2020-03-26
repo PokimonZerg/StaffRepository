@@ -4,8 +4,8 @@
 `docker run -d --name mysql-employees -p 3306:3306 -e MYSQL_ROOT_PASSWORD=college genschsa/mysql-employees:latest`
 
 Далее как сказано в задаче, настраиваем Connection Pool в Tomcat   
-server.xml
-```<Resource name="jdbc/employees"
+server.xml  
+`<Resource name="jdbc/employees"
                  global="jdbc/employees"
                  factory="org.apache.tomcat.jdbc.pool.DataSourceFactory"
                  auth="Container"
@@ -19,13 +19,13 @@ server.xml
                  maxIdle="10"
                  maxWaitMillis="10000"
                  removeAbandonedTimeout="300"           
-                 defaultAutoCommit="true" />```
+                 defaultAutoCommit="true" />`
 
-context.xml
-```   <ResourceLink
+context.xml  
+`   <ResourceLink
      name="jdbc/employees"
      global="jdbc/employees"
-     type="javax.sql.DataSource"/>```
+     type="javax.sql.DataSource"/>`
 
 Положить JDBC driver для MySQL в папку tomcat/lib
 
